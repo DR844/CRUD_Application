@@ -56,12 +56,7 @@ class UpdateActivity : AppCompatActivity() {
                 myCalender.get(Calendar.MONTH),
                 myCalender.get(Calendar.DAY_OF_MONTH)
             )
-            val date = tvUpdateCalender.text.toString()
-            var simpleFormat2 =  DateTimeFormatter.ISO_DATE;
-            var output = LocalDate.parse(date, simpleFormat2)
-
-            val datepicker_1 = dialog.datePicker
-            datepicker_1.minDate = myCalender.timeInMillis //set the current day as the max date
+//            dialog.datePicker.minDate = myCalender.timeInMillis //set the current day as the max date
 //            dialog.datePicker.maxDate = myCalender.timeInMillis
             dialog.show()
         }
@@ -140,5 +135,3 @@ class UpdateActivity : AppCompatActivity() {
         tvUpdateCalender.text = sdf.format(myCalender.time)
     }
 }
-
-
