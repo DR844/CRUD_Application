@@ -1,8 +1,8 @@
 package com.executor.crudapplication
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.executor.crudapplication.db.UserEntity
@@ -20,17 +20,17 @@ class MainActivity : AppCompatActivity(), UserAdapter.RowClickListener {
         setContentView(R.layout.activity_main)
 
         fabAddBtn.setOnClickListener {
-            val intent = Intent(this, UserDetailActivity::class.java)
+            val intent = Intent(this@MainActivity, UserDetailActivity::class.java)
             startActivity(intent)
         }
 
-        val adapter = UserAdapter(this)
+        val adapter = UserAdapter(this@MainActivity, this@MainActivity)
         rvUser.adapter = adapter
-        rvUser.layoutManager = LinearLayoutManager(this)
+        rvUser.layoutManager = LinearLayoutManager(this@MainActivity)
 
-        mUserViewModel = ViewModelProvider(this)[UserViewModel::class.java]
+        mUserViewModel = ViewModelProvider(this@MainActivity)[UserViewModel::class.java]
 
-        mUserViewModel.getAllUser.observe(this) {
+        mUserViewModel.getAllUser.observe(this@MainActivity) {
             adapter.setListData(it)
         }
 
@@ -40,11 +40,10 @@ class MainActivity : AppCompatActivity(), UserAdapter.RowClickListener {
         GlobalScope.launch {
             mUserViewModel.deleteUser(userEntity)
         }
-
     }
 
     override fun onItemClickListener(userEntity: UserEntity) {
-        val intent = Intent(this, UpdateActivity::class.java)
+        val intent = Intent(this@MainActivity, UpdateActivity::class.java)
         intent.putExtra("id", userEntity.id)
         intent.putExtra("fname", userEntity.fName)
         intent.putExtra("lname", userEntity.lName)

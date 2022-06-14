@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.executor.crudapplication.db.UserEntity
 import kotlinx.android.synthetic.main.row_contact.view.*
 
-class UserAdapter(private var listener: RowClickListener) :
+class UserAdapter(private val context: Context, private var listener: RowClickListener) :
     RecyclerView.Adapter<UserAdapter.MyViewHolder>() {
 
     private var myUser = emptyList<UserEntity>()
@@ -21,7 +21,10 @@ class UserAdapter(private var listener: RowClickListener) :
         notifyDataSetChanged()
     }
 
-    class MyViewHolder(itemView: View, private val listener: RowClickListener) :
+    class MyViewHolder(
+        itemView: View,
+        private val listener: RowClickListener
+    ) :
         RecyclerView.ViewHolder(itemView) {
         val image = itemView.civImage
         val fName = itemView.tvfName
@@ -51,6 +54,7 @@ class UserAdapter(private var listener: RowClickListener) :
         holder.email.text = userInfo.email
         holder.age.text = userInfo.age.toString()
         holder.number.text = userInfo.number
+        Glide.with(context).load(userInfo.image).into(holder.image)
         holder.itemView.setOnClickListener {
             if (position != RecyclerView.NO_POSITION) {
                 listener.onItemClickListener(myUser[position])
