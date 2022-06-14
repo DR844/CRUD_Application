@@ -6,74 +6,88 @@
     android:layout_marginLeft="5dp"
     android:layout_marginTop="10dp"
     android:layout_marginRight="5dp"
-    android:layout_marginBottom="10dp">
+    android:layout_marginBottom="10dp"
+    android:backgroundTint="#F8E74F">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
 
         <ImageView
-            android:id="@+id/civContactImage"
+            android:id="@+id/civImage"
             android:layout_width="80dp"
             android:layout_height="120dp"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/no_image_icon" />
 
         <TextView
-            android:id="@+id/tvContactfName"
+            android:id="@+id/tvfName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_toEndOf="@id/civContactImage"
-            android:hint="Dipak"
-            android:textColor="#000"
+            android:layout_toEndOf="@id/civImage"
+            android:textColor="@android:color/holo_red_dark"
             android:textSize="25sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tvContactlName"
+            android:id="@+id/tvlName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_toEndOf="@id/tvContactfName"
-            android:hint="Rana"
-            android:textColor="#000"
+            android:layout_toEndOf="@id/tvfName"
+            android:textColor="@android:color/holo_red_dark"
             android:textSize="25sp"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/tvlName"
+            android:hint="20"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvfName"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/civImage"
+            android:hint="abc@gmail.com"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/tvNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvEmail"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toStartOf="@+id/ibUserDeleteBtn"
+            android:layout_toEndOf="@id/civImage"
+            android:hint="99999999"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="25sp" />
 
         <ImageButton
             android:id="@+id/ibUserDeleteBtn"
-            android:layout_width="60dp"
-            android:layout_height="78dp"
-            android:layout_alignParentTop="true"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="42dp"
-            android:backgroundTint="@color/white"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="88dp"
+            android:layout_marginRight="10dp"
+            android:background="@android:color/transparent"
             android:clickable="true"
-            android:src="@drawable/delete_icon" />
-
-
-        <TextView
-            android:id="@+id/tvContactAge"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvContactfName"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_toEndOf="@id/civContactImage"
-            android:hint="20"
-            android:textColor="#000"
-            android:textSize="25sp" />
-
-        <TextView
-            android:id="@+id/tvContactNumber"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvContactAge"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_toEndOf="@id/civContactImage"
-            android:hint="99999999"
-            android:textColor="#000"
-            android:textSize="25sp" />
+            android:src="@drawable/delete_icon"
+            app:tint="@color/purple_500" />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

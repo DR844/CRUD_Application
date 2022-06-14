@@ -23,7 +23,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etUpdateFirstName"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
@@ -36,7 +36,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etUpdateLastName"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
@@ -44,19 +44,32 @@
             android:hint="Last Name"
             android:inputType="textNoSuggestions"
             android:padding="10dp" />
+        ṣ
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etUpdateEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rounded"
+            android:hint="Email Id"
+            android:inputType="textNoSuggestions"
+            android:padding="10dp" />
 
 
         <RelativeLayout
             android:id="@+id/rlCalender"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="5dp"
             android:background="@drawable/rounded"
             android:foreground="?attr/selectableItemBackground"
-            android:padding="4dp">
+            android:padding="2dp">
 
             <TextView
                 android:id="@+id/tvUpdateCalender"
@@ -86,7 +99,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etUpdateNumber"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
@@ -95,6 +108,7 @@
             android:inputType="numberDecimal"
             android:maxLength="10"
             android:padding="10dp" />
+
         <Button
             android:id="@+id/btnUpdate"
             android:layout_width="match_parent"

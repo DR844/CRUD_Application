@@ -19,4 +19,7 @@ class UserRepository(private val userDAO: UserDAO) {
     suspend fun deleteUser(userEntity: UserEntity) {
         userDAO.deleteUser(userEntity)
     }
+    suspend fun isEmailExist(email:String):Int{
+        return userDAO.isEmailExist(email)
+    }
 }

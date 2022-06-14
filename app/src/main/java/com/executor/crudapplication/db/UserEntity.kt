@@ -11,6 +11,7 @@ data class UserEntity(
     val image: String,
     val fName: String,
     val lName: String,
+    val email: String,
     val dob: String,
     val age: Int = 0,
     val number: String,

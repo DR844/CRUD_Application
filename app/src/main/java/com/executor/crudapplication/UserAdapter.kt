@@ -1,10 +1,12 @@
 package com.executor.crudapplication
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.executor.crudapplication.db.UserEntity
 import kotlinx.android.synthetic.main.row_contact.view.*
 
@@ -21,10 +23,12 @@ class UserAdapter(private var listener: RowClickListener) :
 
     class MyViewHolder(itemView: View, private val listener: RowClickListener) :
         RecyclerView.ViewHolder(itemView) {
-        val fName = itemView.tvContactfName
-        val lName = itemView.tvContactlName
-        val number = itemView.tvContactNumber
-        val age = itemView.tvContactAge
+        val image = itemView.civImage
+        val fName = itemView.tvfName
+        val lName = itemView.tvlName
+        val number = itemView.tvNumber
+        val email = itemView.tvEmail
+        val age = itemView.tvAge
         val deleteUserId = itemView.ibUserDeleteBtn
 
         fun bind(data: UserEntity) {
@@ -44,8 +48,9 @@ class UserAdapter(private var listener: RowClickListener) :
         val userInfo = myUser[position]
         holder.fName.text = userInfo.fName
         holder.lName.text = userInfo.lName
+        holder.email.text = userInfo.email
         holder.age.text = userInfo.age.toString()
-        holder.number.text = userInfo.number.toString()
+        holder.number.text = userInfo.number
         holder.itemView.setOnClickListener {
             if (position != RecyclerView.NO_POSITION) {
                 listener.onItemClickListener(myUser[position])

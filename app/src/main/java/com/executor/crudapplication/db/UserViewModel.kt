@@ -34,4 +34,11 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
             repository.deleteUser(userEntity)
         }
     }
+
+    suspend fun isEmailExist(email: String): Int {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.isEmailExist(email)
+        }
+        return email.toInt()
+    }
 }

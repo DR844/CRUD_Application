@@ -5,7 +5,7 @@ import androidx.room.*
 
 @Dao
 interface UserDAO {
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertUser(user: UserEntity)
 
     @Update
@@ -16,4 +16,7 @@ interface UserDAO {
 
     @Query("select * from user_table")
     fun getAllUser(): LiveData<List<UserEntity>>
+
+    @Query("SELECT count(email) FROM user_table WHERE email = :email")
+    fun isEmailExist(email: String): Int
 }

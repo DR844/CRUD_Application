@@ -7,7 +7,7 @@
     tools:context=".UserDetailActivity">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <ImageView
@@ -20,12 +20,12 @@
             android:src="@drawable/person_icon" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etContactFirstName"
+            android:id="@+id/etFirstName"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/rounded"
             android:hint="First Name"
             android:inputType="textNoSuggestions"
@@ -33,9 +33,9 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etContactLastName"
+            android:id="@+id/etLastName"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
@@ -44,6 +44,17 @@
             android:inputType="textNoSuggestions"
             android:padding="10dp" />
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rounded"
+            android:hint="Email Id"
+            android:inputType="textNoSuggestions"
+            android:padding="10dp" />
 
         <RelativeLayout
             android:id="@+id/rlCalender"
@@ -58,7 +69,7 @@
             android:padding="4dp">
 
             <TextView
-                android:id="@+id/tvContactCalender"
+                android:id="@+id/tvCalender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -69,7 +80,8 @@
                 android:inputType="date"
                 android:paddingLeft="10dp"
                 android:textColor="@color/black"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <ImageView
                 android:id="@+id/ivCalender"
@@ -83,16 +95,16 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etContactNumber"
+            android:id="@+id/etNumber"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
-            android:maxLength="10"
             android:background="@drawable/rounded"
             android:hint="Contact Number"
             android:inputType="numberDecimal"
+            android:maxLength="10"
             android:padding="10dp" />
 
 
@@ -106,7 +118,7 @@
             android:background="@drawable/rounded"
             android:gravity="center"
             android:text="Save"
-            android:textAllCaps="false"
-            android:textSize="21dp" />
+            android:layout_marginBottom="20dp"
+            android:textSize="21sp" />
     </LinearLayout>
 </ScrollView>

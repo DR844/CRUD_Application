@@ -48,8 +48,10 @@ class MainActivity : AppCompatActivity(), UserAdapter.RowClickListener {
         intent.putExtra("id", userEntity.id)
         intent.putExtra("fname", userEntity.fName)
         intent.putExtra("lname", userEntity.lName)
+        intent.putExtra("email", userEntity.email)
         intent.putExtra("dob", userEntity.dob)
         intent.putExtra("number", userEntity.number)
+        intent.putExtra("img", userEntity.image)
         startActivity(intent)
     }
 }
