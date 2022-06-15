@@ -1,6 +1,7 @@
 package com.executor.crudapplication
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.executor.crudapplication.db.UserEntity
 import kotlinx.android.synthetic.main.row_contact.view.*
+import kotlinx.coroutines.withContext
 
 class UserAdapter(private val context: Context, private var listener: RowClickListener) :
     RecyclerView.Adapter<UserAdapter.MyViewHolder>() {
@@ -60,6 +62,7 @@ class UserAdapter(private val context: Context, private var listener: RowClickLi
                 listener.onItemClickListener(myUser[position])
             }
         }
+
         holder.bind(myUser[position])
     }
 

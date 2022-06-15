@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity(), UserAdapter.RowClickListener {
 
     override fun onItemClickListener(userEntity: UserEntity) {
         val intent = Intent(this@MainActivity, UpdateActivity::class.java)
+//        intent.putExtra("User", userEntity[])
         intent.putExtra("id", userEntity.id)
         intent.putExtra("fname", userEntity.fName)
         intent.putExtra("lname", userEntity.lName)

@@ -44,6 +44,11 @@ class UserDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_detail)
 
+        val actionBar = supportActionBar
+//        actionBar!!.title = "UserDetailActivity"
+        actionBar?.setDisplayHomeAsUpEnabled(true)
+
+
         cameraPermission =
             arrayOf(
                 android.Manifest.permission.CAMERA,
@@ -88,6 +93,11 @@ class UserDetailActivity : AppCompatActivity() {
             insertDataToDatabase()
         }
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     private fun showDialog() {

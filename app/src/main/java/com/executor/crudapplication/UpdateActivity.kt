@@ -46,6 +46,9 @@ class UpdateActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update)
 
+        val actionBar = supportActionBar
+        actionBar?.setDisplayHomeAsUpEnabled(true)
+
         cameraPermission =
             arrayOf(
                 android.Manifest.permission.CAMERA,
@@ -91,10 +94,16 @@ class UpdateActivity : AppCompatActivity() {
         tvUpdateCalender.text = intent.getStringExtra("dob")
         etUpdateNumber.setText(intent.getStringExtra("number"))
         ivUpdateProfile.setImageURI(Uri.parse(intent.getStringExtra("img")))
+        photoPath = intent.getStringExtra("img")
 
         btnUpdate.setOnClickListener {
             UpdateDataToDatabase()
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     private fun showDialog() {
@@ -221,6 +230,8 @@ class UpdateActivity : AppCompatActivity() {
         myAge = currentYear - year.toInt()
 
 
+
+
         if (!TextUtils.isEmpty(fName) && !TextUtils.isEmpty(lName) && !TextUtils.isEmpty(dob) && !TextUtils.isEmpty(
                 number
             )
@@ -229,28 +240,30 @@ class UpdateActivity : AppCompatActivity() {
                 Toast.makeText(this, " Invalid Email Format", Toast.LENGTH_SHORT).show()
             } else {
                 if (UserDatabase.getDatabase(this).userDao().isEmailExist(email) == 0) {
-                    val user =
-                        UserEntity(
-                            id,
-                            photoPath!!,
-                            fName,
-                            lName,
-                            email,
-                            dob,
-                            myAge,
-                            number,
-                            Date()
-                        )
+                val user =
+                    UserEntity(
+                        id,
+                        photoPath!!,
+                        fName,
+                        lName,
+                        email,
+                        dob,
+                        myAge,
+                        number,
+                        Date()
+                    )
 
-                    GlobalScope.launch {
-                        mUserViewModel.updateUser(user)
-                    }
+                GlobalScope.launch {
+                    mUserViewModel.updateUser(user)
+                }
 
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
 
-                    Toast.makeText(this, "Successfully Updated", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Successfully Updated", Toast.LENGTH_SHORT).show()
+
                 } else {
+
                     Toast.makeText(this, "This id Already Exists", Toast.LENGTH_SHORT).show()
                 }
             }
