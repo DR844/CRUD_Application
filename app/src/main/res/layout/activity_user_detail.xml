@@ -16,7 +16,6 @@
             android:layout_height="150dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="15dp"
-            android:scaleType="fitXY"
             android:src="@drawable/person_icon" />
 
         <com.google.android.material.textfield.TextInputEditText
@@ -68,7 +67,7 @@
             android:foreground="?attr/selectableItemBackground"
             android:padding="4dp">
 
-            <TextView
+                <TextView
                 android:id="@+id/tvCalender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

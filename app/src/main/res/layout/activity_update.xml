@@ -44,19 +44,21 @@
             android:hint="Last Name"
             android:inputType="textNoSuggestions"
             android:padding="10dp" />
-        ṣ
 
-        <com.google.android.material.textfield.TextInputEditText
+
+        <TextView
             android:id="@+id/etUpdateEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
+            android:editable="false"
             android:background="@drawable/rounded"
             android:hint="Email Id"
             android:inputType="textNoSuggestions"
-            android:padding="10dp" />
+            android:padding="10dp"
+            tools:ignore="Deprecated" />
 
 
         <RelativeLayout

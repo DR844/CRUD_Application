@@ -2,6 +2,8 @@ package com.executor.crudapplication
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,6 +20,7 @@ class MainActivity : AppCompatActivity(), UserAdapter.RowClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+//        tvCount.setText(mUserViewModel.)
 
         fabAddBtn.setOnClickListener {
             val intent = Intent(this@MainActivity, UserDetailActivity::class.java)
@@ -37,14 +40,24 @@ class MainActivity : AppCompatActivity(), UserAdapter.RowClickListener {
     }
 
     override fun onDeleteUserClickListener(userEntity: UserEntity) {
-        GlobalScope.launch {
-            mUserViewModel.deleteUser(userEntity)
+        val dialog = AlertDialog.Builder(this@MainActivity)
+        dialog.setTitle("Are you Sure Delete this ${userEntity.fName} ?")
+        dialog.setPositiveButton("Delete") { _, _ ->
+            GlobalScope.launch {
+                mUserViewModel.deleteUser(userEntity)
+            }
+            Toast.makeText(this, "${userEntity.fName} Delete", Toast.LENGTH_SHORT).show()
         }
+        dialog.setNegativeButton("No") { _, _ ->
+            Toast.makeText(this, "Not Delete", Toast.LENGTH_SHORT).show()
+        }
+        dialog.show()
+
     }
 
     override fun onItemClickListener(userEntity: UserEntity) {
         val intent = Intent(this@MainActivity, UpdateActivity::class.java)
-//        intent.putExtra("User", userEntity[])
+//        intent.putExtra("User", userEntity[position])
         intent.putExtra("id", userEntity.id)
         intent.putExtra("fname", userEntity.fName)
         intent.putExtra("lname", userEntity.lName)

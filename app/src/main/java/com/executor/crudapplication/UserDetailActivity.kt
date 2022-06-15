@@ -36,9 +36,8 @@ class UserDetailActivity : AppCompatActivity() {
 
     private var photoPath: String? = null
 
-    companion object {
-        private var myAge = 0
-    }
+    private var myAge = 0
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

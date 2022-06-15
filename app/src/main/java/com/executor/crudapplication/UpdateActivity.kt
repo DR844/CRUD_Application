@@ -1,5 +1,6 @@
 package com.executor.crudapplication
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.content.Intent
@@ -42,6 +43,7 @@ class UpdateActivity : AppCompatActivity() {
         private var myAge = 0
     }
 
+    @SuppressLint("SimpleDateFormat")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update)
@@ -62,8 +64,12 @@ class UpdateActivity : AppCompatActivity() {
                 showDialog()
             }
         }
-
+        val sdf = SimpleDateFormat("dd-MM-yyyy")
+        val date = sdf.parse(intent.getStringExtra("dob")!!)
         val myCalender = Calendar.getInstance()
+        myCalender.time = date
+
+//        val myCalender = Calendar.getInstance()
 
         val datePicker = DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
 
@@ -81,7 +87,6 @@ class UpdateActivity : AppCompatActivity() {
                 myCalender.get(Calendar.MONTH),
                 myCalender.get(Calendar.DAY_OF_MONTH)
             )
-            dialog.setOnDateSetListener(datePicker)
             dialog.datePicker.maxDate = myCalender.timeInMillis
             dialog.show()
         }
@@ -90,7 +95,7 @@ class UpdateActivity : AppCompatActivity() {
 
         etUpdateFirstName.setText(intent.getStringExtra("fname"))
         etUpdateLastName.setText(intent.getStringExtra("lname"))
-        etUpdateEmail.setText(intent.getStringExtra("email"))
+        etUpdateEmail.text = intent.getStringExtra("email")
         tvUpdateCalender.text = intent.getStringExtra("dob")
         etUpdateNumber.setText(intent.getStringExtra("number"))
         ivUpdateProfile.setImageURI(Uri.parse(intent.getStringExtra("img")))
@@ -236,10 +241,10 @@ class UpdateActivity : AppCompatActivity() {
                 number
             )
         ) {
-            if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+           /* if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 Toast.makeText(this, " Invalid Email Format", Toast.LENGTH_SHORT).show()
-            } else {
-                if (UserDatabase.getDatabase(this).userDao().isEmailExist(email) == 0) {
+            } else {*/
+//                if (UserDatabase.getDatabase(this).userDao().isEmailExist(email) == 0) {
                 val user =
                     UserEntity(
                         id,
@@ -262,11 +267,11 @@ class UpdateActivity : AppCompatActivity() {
 
                 Toast.makeText(this, "Successfully Updated", Toast.LENGTH_SHORT).show()
 
-                } else {
-
-                    Toast.makeText(this, "This id Already Exists", Toast.LENGTH_SHORT).show()
-                }
-            }
+//                } else {
+//
+//                    Toast.makeText(this, "This id Already Exists", Toast.LENGTH_SHORT).show()
+//                }
+//            }
         } else {
             Toast.makeText(
                 this,

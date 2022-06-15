@@ -6,8 +6,8 @@
     android:layout_marginLeft="5dp"
     android:layout_marginTop="10dp"
     android:layout_marginRight="5dp"
-    android:layout_marginBottom="10dp"
-    android:backgroundTint="#F8E74F">
+    android:layout_marginBottom="10dp">
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_toEndOf="@id/civImage"
-            android:textColor="@android:color/holo_red_dark"
+
             android:textSize="25sp"
             android:textStyle="bold" />
 
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_toEndOf="@id/tvfName"
-            android:textColor="@android:color/holo_red_dark"
+
             android:textSize="25sp"
             android:textStyle="bold" />
 
@@ -47,7 +47,7 @@
             android:layout_marginStart="10dp"
             android:layout_toEndOf="@id/tvlName"
             android:hint="20"
-            android:textColor="@android:color/holo_red_dark"
+
             android:textSize="25sp"
             android:textStyle="bold" />
 
@@ -61,7 +61,7 @@
             android:layout_marginTop="10dp"
             android:layout_toEndOf="@id/civImage"
             android:hint="abc@gmail.com"
-            android:textColor="@android:color/holo_red_dark"
+
             android:textSize="25sp" />
 
         <TextView
@@ -74,7 +74,7 @@
             android:layout_toStartOf="@+id/ibUserDeleteBtn"
             android:layout_toEndOf="@id/civImage"
             android:hint="99999999"
-            android:textColor="@android:color/holo_red_dark"
+
             android:textSize="25sp" />
 
         <ImageButton
